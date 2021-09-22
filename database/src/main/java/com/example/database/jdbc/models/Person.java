@@ -13,13 +13,13 @@ public class Person {
     private int id;
     private String name;
     private String location;
-    private Date birthdate;
+    private Date birthDate;
 
-    public Person(int id, String name, String location, Date birthdate) {
+    public Person(int id, String name, String location, Date birthDate) {
         this.id = id;
         this.name = name;
         this.location = location;
-        this.birthdate = birthdate;
+        this.birthDate = birthDate;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Person {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
-                ", birthdate=" + birthdate +
+                ", birthdate=" + birthDate +
                 '}';
     }
 }

@@ -2,6 +2,8 @@ package com.example.employeemanagement.Controller;
 
 import com.example.employeemanagement.Model.Employee;
 import com.example.employeemanagement.Service.EmployeeService;
+import com.example.employeemanagement.Utils.DataNotEnoughException;
+import com.example.employeemanagement.Utils.EmployeeValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +19,10 @@ public class EmployeeController {
 
     @PostMapping("/employees")
     public void saveEmployee(@RequestBody Employee employee) {
-        employeeService.saveEmployee(employee);
+        if (EmployeeValidator.isValid(employee)) {
+            employeeService.saveEmployee(employee);
+        }
+        else throw new DataNotEnoughException();
     }
 
     @GetMapping("/employees")
